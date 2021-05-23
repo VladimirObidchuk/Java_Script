@@ -36,8 +36,3 @@ if (setHourInDay === 12 || setHourInDay === 24) {
     }
 }
 else { alert('The hour period in days is incorrectly entered'); }
-
-
-12
-
-12

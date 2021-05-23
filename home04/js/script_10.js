@@ -1,172 +1,55 @@
-let year = +prompt(`Enter current year`),
-    monthText = prompt(`Enter current month`),
-    day = +prompt(`Enter current day`);
+// Написать функцию, которая считает разницу между датами.
+// alert('Enter date only 24r');
+// let setHourInDay = +prompt('Enter date');
+// if (setHourInDay === 24) {
+let setTimeHourFirst = +prompt('Enter the hours of the first date');
+// if (setHourInDay === 12 && setTimeHourFirst > 12 && setTimeHourFirst < 0) {
+//     alert('The hour  entered incorrectly');
+// }
+// else if (setHourInDay === 24 && setTimeHourFirst < 0 && setTimeHourFirst > 24) {
+//     alert('The hour  entered incorrectly');
+// }
+// else {
+let setTimeMinutFirst = +prompt('Enter the minutes of the first date');
+let setTimeSecondFirst = +prompt('Enter the seconds of the first date');
 
-let month,
-    monthName,
-    numLeap,
-    numMult4 = year % 4,
-    numMult100 = year % 100;
+//     if (setTimeMinutFirst > 60 || setTimeMinutFirst < 0 || setTimeSecondFirst > 60 || setTimeSecondFirst < 0) {
+//         alert('The minutes or seconds entered incorrectly');
+//     }
 
-if (numMult4 === 0 && numMult100 !== 0) {
-    leap = 1;
+let setTimeHourSecond = +prompt('Enter the hour of the second date');
+// if (setHourInDay === 12 && setTimeHourSecond < 0 && setTimeHourSecond > 12) {
+//     alert('The hour  entered incorrectly');
+// }
+// else if (setHourInDay === 24 && setTimeHourSecond < 0 || setTimeHourSecond > 24) {
+//     alert('The hour  entered incorrectly');
+// }
+// else {
+let setTimeMinutSecond = +prompt('Enter the minutes of the second date');
+let setTimeSecondSecond = +prompt('Enter the second of the second date');
+// if (setTimeMinutSecond > 60 || setTimeMinutSecond < 0 || setTimeSecondSecond > 60 || setTimeSecondSecond < 0) {
+//     alert('The minutes or seconds entered incorrectly');
+//     }
+// }
+let calcFirstDateTime = calcTimeForSecond(setTimeHourFirst, setTimeMinutFirst, setTimeSecondFirst);
+// }
+let calcSecondtDateTime = calcTimeForSecond(setTimeHourSecond, setTimeMinutSecond, setTimeSecondSecond);
+function calcTimeForSecond(n1, n2, n3) {
+    return calcTimeSecond = (n1 * 3600) + (n2 * 60) + n3;
 }
-else { leap = 2; };
+let calcDifferenceTime = Math.abs(calcFirstDateTime - calcSecondtDateTime);
+function calcTimeForDate(n1) {
+    let getHour = getMinuts = getSecond = '';
+    let calcHour = Math.trunc(n1 / 3600);
+    let calcMinuts = Math.trunc(n1 / 60) - (calcHour * 60);
+    let calcSecond = n1 - ((calcHour * 3600) + (calcMinuts * 60));
+    // getHour = (calcHour > 0 && calcHour < 10) ? getHour = '0' + calcHour : getHour = calcHour;
+    getMinuts = (calcMinuts > 0 && calcMinuts < 10) ? getMinuts = '0' + calcMinuts : getHour = calcMinuts;
+    getSecond = (calcSecond > 0 && calcSecond < 10) ? getSecond = '0' + calcSecond : calcSecond = calcSecond;
 
-if (typeof (monthText) == "string") {
-    switch (monthText) {
-        case "January": month = 1; monthName = "January"; break;
-        case "February": month = 2; monthName = "February"; break;
-        case "March": month = 3; monthName = "March"; break;
-        case "April": month = 4; monthName = "April"; break;
-        case "May": month = 5; monthName = "May"; break;
-        case "June": month = 6; monthName = "June"; break;
-        case "July": month = 7; monthName = "July"; break;
-        case "August": month = 8; monthName = "August"; break;
-        case "September": month = 9; monthName = "September"; break;
-        case "October": month = 10; monthName = "October"; break;
-        case "November": month = 11; monthName = "November"; break;
-        case "December": month = 12; monthName = "December"; break;
-        default: month = Number(monthText);
-    }
+    return getTime = (`Time: ${calcHour}:${getMinuts}:${getSecond}`);
 }
-if (1 > month || month > 12) {
-    alert(`Wrong month`);
-}
-else {
-    switch (month) {
-        case 1: monthName = "January"; break;
-        case 2: monthName = "February"; break;
-        case 3: monthName = "March"; break;
-        case 4: monthName = "April"; break;
-        case 5: monthName = "May"; break;
-        case 6: monthName = "June"; break;
-        case 7: monthName = "July"; break;
-        case 8: monthName = "August"; break;
-        case 9: monthName = "September"; break;
-        case 10: monthName = "October"; break;
-        case 11: monthName = "November"; break;
-        case 12: monthName = "December"; break;
-    }
-}
+alert(calcTimeForDate(calcDifferenceTime));
 
-
-switch (month) {
-    case 1: if (1 > day || day > 31) {
-        alert(`Wronge day`);
-    }
-    else if (1 <= day && day <= 30) {
-        alert(`Nex data: ${year}. ${monthName}. ${++day}`);
-    }
-    else { alert(`Nex data: ${year}. ${monthName = `February`}. ${day = 01}`); };
-        break;
-
-    case 2: if (leap == 1) {
-        if (1 > day || day > 29) {
-            alert(`Wronge day`);
-        }
-        else if (1 <= day && day <= 28) {
-            alert(`Nex data: ${year}. ${monthName}. ${++day}`);
-        }
-        else { alert(`Nex data: ${year}. ${monthName = `March`}. ${day = 01}`); };
-    }
-    else {
-        if (1 > day || day > 28) {
-            alert(`Wronge day`);
-        }
-        else if (1 <= day && day <= 27) {
-            alert(`Nex data: ${year}. ${monthName}. ${++day}`);
-        }
-        else { alert(`Nex data: ${year}. ${monthName = `March`}. ${day = 01}`); };
-    }
-        break;
-
-    case 3: if (1 > day || day > 31) {
-        alert(`Wronge day`);
-    }
-    else if (1 <= day && day <= 30) {
-        alert(`Nex data: ${year}. ${monthName}. ${++day}`);
-    }
-    else { alert(`Nex data: ${year}. ${monthName = `April`}. ${day = 01}`); };
-        break;
-
-    case 4: if (1 > day || day > 30) {
-        alert(`Wronge day`);
-    }
-    else if (1 <= day && day <= 29) {
-        alert(`Nex data: ${year}. ${monthName}. ${++day}`);
-    }
-    else { alert(`Nex data: ${year}. ${monthName = `May`}. ${day = 01}`); };
-        break;
-
-    case 5: if (1 > day || day > 31) {
-        alert(`Wronge day`);
-    }
-    else if (1 <= day && day <= 30) {
-        alert(`Nex data: ${year}. ${monthName}. ${++day}`);
-    }
-    else { alert(`Nex data: ${year}. ${monthName = `June`}. ${day = 01}`); };
-        break;
-
-    case 6: if (1 > day || day > 30) {
-        alert(`Wronge day`);
-    }
-    else if (1 <= day && day <= 29) {
-        alert(`Nex data: ${year}. ${monthName}. ${++day}`);
-    }
-    else { alert(`Nex data: ${year}. ${monthName = `July`}. ${day = 01}`); };
-        break;
-
-    case 7: if (1 > day || day > 31) {
-        alert(`Wronge day`);
-    }
-    else if (1 <= day && day <= 30) {
-        alert(`Nex data: ${year}. ${monthName}. ${++day}`);
-    }
-    else { alert(`Nex data: ${year}.${monthName = `August`}.${day = 01}`); };
-        break;
-
-    case 8: if (1 > day || day > 31) {
-        alert(`Wronge day`);
-    }
-    else if (1 <= day && day <= 30) {
-        alert(`Nex data: ${year}. ${monthName}. ${++day}`);
-    }
-    else { alert(`Nex data: ${year}. ${monthName = `September`}. ${day = 01}`); };
-        break;
-
-    case 9: if (1 > day || day > 30) {
-        alert(`Wronge day`);
-    }
-    else if (1 <= day && day <= 29) {
-        alert(`Nex data: ${year}. ${monthName}. ${++day}`);
-    }
-    else { alert(`Nex data: ${year}. ${monthName = `October`}. ${day = 01}`); };
-        break;
-
-    case 10: if (1 > day || day > 31) {
-        alert(`Wronge day`);
-    }
-    else if (1 <= day && day <= 30) {
-        alert(`Nex data: ${year}. ${monthName}. ${++day}`);
-    }
-    else { alert(`Nex data: ${year}. ${monthName = `November`}. ${day = 01}`); };
-        break;
-
-    case 11: if (1 > day || day > 30) {
-        alert(`Wronge day`);
-    }
-    else if (1 <= day && day <= 29) {
-        alert(`Nex data: ${year}. ${monthName}. ${++day}`);
-    }
-    else { alert(`Nex data: ${year}. ${monthName = `December`}. ${day = 01}`); };
-        break;
-
-    case 12: if (1 > day || day > 31) {
-        alert(`Wronge day`);
-    }
-    else if (1 <= day && day <= 30) {
-        alert(`Nex data: ${year}. ${monthName}. ${++day}`);
-    }
-    else { alert(`Nex data: ${year++}. ${monthName = `Januar`}. ${day = 01}`); };
-}
+// }
+// else { alert('The hour period in days is incorrectly entered'); }
