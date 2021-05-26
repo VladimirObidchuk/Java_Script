@@ -19,7 +19,6 @@ else if (question1 == 7 && question2 !== 4 && question3 == 2) {
     alert(`number of points scored: ${sumBall}`);
 }
 else if (question1 == 7 && question2 == 4 && question3 !== 2) {
-    77
     sumBall = 2 + 2;
     alert(`number of points scored: ${sumBall}`);
 }
